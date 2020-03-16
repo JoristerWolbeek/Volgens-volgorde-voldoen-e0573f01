@@ -2,14 +2,14 @@ const correctAntwoorden = ["Parijs",
 8, 
 "Ijselmeer", 
 ["Volkswagen", "Audi", "Opel", "Porsche", "BMW", "Mercedes", "Mercedes-Benz"], 
-"Texel, Vlieland, Terschelling, Ameland, Schiermonnikoog" 
+["Texel", "Vlieland", "Terschelling", "Ameland", "Schiermonnikoog"] 
 ];
 
 const vraagAntwoorden = ["wat is de hoofdstad van Frankrijk?", 
 "hoeveel poten hebben spinnen?",
 "wat is het grootste meer in Nederland", 
-"Noem een duits automerk" , 
-"Noem alle waddeneilanden" 
+"Noem minstens 2 duits automerken" , 
+"Noem meer dan 2 waddeneilanden" 
 ];
 
 var antwoorden = [];
@@ -49,7 +49,8 @@ function checkAntwoord(){
     for (y=0; y<vraagAntwoorden.length; y++){
         if(Array.isArray(correctAntwoorden[y]) ){
             for(x=0; x<correctAntwoorden[y].length; x++){
-                if(correctAntwoorden[y][x]==antwoorden[y]){
+                var arrayAntwoord = antwoorden[y].split(", ");
+                if(correctAntwoorden[y][x]==arrayAntwoord[x]){
                     document.getElementById("vraag"+y).style.backgroundColor = "green";
                     correct++;
                 }
